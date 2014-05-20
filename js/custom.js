@@ -20,6 +20,22 @@ myButton.addEventListener('touchstart',function(event) {
 
 },false);
 
+myButton.addEventListener('mousedown',function(event) {
+
+    // a reference for our timer
+    startTime = new Date().getTime();
+
+    // Start a timer for how long the button has been pressed
+    startPress = window.setTimeout(pressHold, pressDuration);
+
+    // Visual feedback...
+    display.show();
+    display.text("Hold...");
+
+},false);
+
+
+
 myButton.addEventListener('touchmove',function(event) {
 
 	// clear The timer if the user moves their finger
@@ -40,6 +56,21 @@ myButton.addEventListener('touchend',function(event) {
     } else {
     	// Fancy fadeout...
     	display.fadeOut();
+    }
+},false);
+
+myButton.addEventListener('mouseup',function(event) {
+
+    endTime = new Date().getTime();
+
+    // If the button hasn't been pressed long enough, we clear the timer
+    if (endTime < startTime + 800) {
+        window.clearTimeout(startPress);
+        // $myButton.text(parseInt($myButton.text()) + 1);
+        display.text("");
+    } else {
+        // Fancy fadeout...
+        display.fadeOut();
     }
 },false);
 
