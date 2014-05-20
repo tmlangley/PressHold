@@ -20,6 +20,17 @@ body {
 	cursor: pointer;
 }
 
+#myButton > .editField {
+	font-size: 1em;
+	width: 2em;
+	background: transparent none;
+	border: 3px dashed #444;
+	border-radius: 4px;
+	text-align: center;
+	display: inline-block;
+	color: #ccc;
+}
+
 #display {
 	font-size: 3em;	
 	color: #333;
